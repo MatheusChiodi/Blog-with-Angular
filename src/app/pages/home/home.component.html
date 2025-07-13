@@ -10,35 +10,31 @@
     class="w-full max-w-[1920px] mx-auto flex flex-col lg:flex-row justify-center items-start gap-8 px-4"
   >
     <div class="flex-1 flex justify-center mx-auto">
-      <app-big-card
-        photoCover="https://matheuschiodi.github.io/Portfolio/projects/mchiodi-focus.png"
-        cardTitle="MChiodi Focus"
-        cardDescription="Um projeto de produtividade que combina técnicas de Pomodoro e Kanban, desenvolvido para ajudar usuários a gerenciar tarefas e tempo de forma eficiente."
-        cardLink="https://mchiodi-focus.vercel.app/"
-      ></app-big-card>
+      <ng-container *ngFor="let noticia of noticias">
+        <app-big-card
+          *ngIf="noticia.id == 1"
+          [Id]="noticia.id"
+          [photoCover]="noticia.photo"
+          [cardTitle]="noticia.title"
+          [cardDescription]="noticia.description"
+        ></app-big-card>
+      </ng-container>
     </div>
     <div class="flex-1 flex flex-col gap-4 mx-auto">
-      <app-small-card
-        photoCover="https://matheuschiodi.github.io/Portfolio/projects/knowledgehub.png"
-        cardTitle="KnowledgeHub"
-        cardDescription="Biblioteca digital moderna desenvolvida com React.js, Vite, Tailwind CSS e Framer Motion. Centraliza artigos e materiais técnicos em PDF sobre APIs, Desenvolvimento, GitHub, Inteligência Artificial, Node.js e Python."
-        cardLink="https://knowledge-hub-matheuschiodis-projects.vercel.app/"
-      ></app-small-card>
-      <app-small-card
-        photoCover="https://matheuschiodi.github.io/Portfolio/projects/knowledgehub.png"
-        cardTitle="KnowledgeHub"
-        cardDescription="Biblioteca digital moderna desenvolvida com React.js, Vite, Tailwind CSS e Framer Motion. Centraliza artigos e materiais técnicos em PDF sobre APIs, Desenvolvimento, GitHub, Inteligência Artificial, Node.js e Python."
-        cardLink="https://knowledge-hub-matheuschiodis-projects.vercel.app/"
-      ></app-small-card>
-      <app-small-card
-        photoCover="https://matheuschiodi.github.io/Portfolio/projects/knowledgehub.png"
-        cardTitle="KnowledgeHub"
-        cardDescription="Biblioteca digital moderna desenvolvida com React.js, Vite, Tailwind CSS e Framer Motion. Centraliza artigos e materiais técnicos em PDF sobre APIs, Desenvolvimento, GitHub, Inteligência Artificial, Node.js e Python."
-        cardLink="https://knowledge-hub-matheuschiodis-projects.vercel.app/"
-      ></app-small-card>
+      <ng-container *ngFor="let noticia of noticias">
+        <app-small-card
+          *ngIf="noticia.id > 1"
+          [Id]="noticia.id"
+          [photoCover]="noticia.photo"
+          [cardTitle]="noticia.title"
+          [cardDescription]="noticia.description"
+        ></app-small-card>
+      </ng-container>
     </div>
   </div>
 </main>
+
+<app-back-to-top></app-back-to-top>
 
 <footer class="w-full">
   <app-footer></app-footer>
