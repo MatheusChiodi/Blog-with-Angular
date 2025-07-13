@@ -1,15 +1,25 @@
-<header>
+<header class="sticky top-0 z-30">
   <app-menu-bar></app-menu-bar>
 </header>
 
-<app-menu-title></app-menu-title>
-<div class="container__articles">
-  <div class="articles__main">
-    <app-big-card></app-big-card>
+<main
+  class="min-h-screen flex flex-col items-center bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 pb-[40px]"
+>
+  <app-menu-title></app-menu-title>
+  <div
+    class="w-full max-w-[1920px] mx-auto flex flex-col lg:flex-row justify-center items-start gap-8 px-4"
+  >
+    <div class="flex-1 flex justify-center mx-auto">
+      <app-big-card></app-big-card>
+    </div>
+    <div class="flex-1 flex flex-col gap-4 mx-auto">
+      <app-small-card></app-small-card>
+      <app-small-card></app-small-card>
+      <app-small-card></app-small-card>
+    </div>
   </div>
-  <div class="articles__others">
-    <app-small-card></app-small-card>
-    <app-small-card></app-small-card>
-    <app-small-card></app-small-card>
-  </div>
-</div>
+</main>
+
+<footer class="w-full">
+  <app-footer></app-footer>
+</footer>
