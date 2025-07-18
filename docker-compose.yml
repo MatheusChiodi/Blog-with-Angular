@@ -1,10 +1,7 @@
-version: "3"
 services:
-  angular9-app:
+  angular9-builder:
     build: .
-    ports:
-      - "4200:4200"
     volumes:
-      - .:/app
-      - /app/node_modules
-    command: npx ng serve --host 0.0.0.0 --poll=1000 --disable-host-check
+      - ./dist:/app/dist
+    entrypoint: sh
+    command: -c "npx ng build --prod --base-href 'https://MatheusChiodi.github.io/Blog-with-Angular/'"
